@@ -68,22 +68,8 @@ CREATE TABLE Reservations (
     CONSTRAINT FK_Res_Emp FOREIGN KEY (employee_id) REFERENCES Employees(employee_id) ON DELETE CASCADE
 )
 
-SELECT * FROM Assets WHERE asset_id = 9999
-DBCC CHECKIDENT ('Assets', RESEED, 10);
-delete from Assets
-where AssetId>=1148;
-select * from Employees
-ALTER DATABASE AseestDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-DROP DATABASE AssetDB;
-USE master;
-GO
-
-ALTER DATABASE AssetDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-GO
-
-DROP DATABASE AssetDB;
-select * from Assets
 -- Insert Employees
+    
 INSERT INTO Employees (name, department, email, password) VALUES
 ('Arun Kumar', 'IT', 'arun.kumar@company.com', 'password123'),
 ('Meena Ramesh', 'Finance', 'meena.ramesh@company.com', 'secure456'),
@@ -94,9 +80,10 @@ INSERT INTO Employees (name, department, email, password) VALUES
 ('Pradeep V', 'Finance', 'pradeep.v@company.com', 'prad321'),
 ('Revathi N', 'Operations', 'revathi.n@company.com', 'rev999'),
 ('Bharath Kumar', 'IT', 'bharath.kumar@company.com', 'bharath987'),
-('Yamini R', 'HR', 'yamini.r@company.com', 'yamini@456');
+('Yamini R', 'HR', 'yamini.r@company.com', 'yamini@456')
 
 -- Insert Assets
+    
 INSERT INTO Assets (name, type, serial_number, purchase_date, location, status, owner_id) VALUES
 ('Dell Laptop', 'Laptop', 'TN-LAP-001', '2023-01-10', 'Chennai', 'in use', 1),
 ('Canon Printer', 'Printer', 'TN-PRT-002', '2022-05-20', 'Coimbatore', 'under maintenance', NULL),
@@ -107,9 +94,10 @@ INSERT INTO Assets (name, type, serial_number, purchase_date, location, status, 
 ('Cisco Router', 'Networking', 'TN-NTW-007', '2022-11-05', 'Madurai', 'under maintenance', 7),
 ('Asus Laptop', 'Laptop', 'TN-LAP-008', '2023-12-11', 'Chennai', 'in use', 8),
 ('Samsung Monitor', 'Monitor', 'TN-MON-009', '2021-04-19', 'Coimbatore', 'in use', 9),
-('HP Desktop', 'Desktop', 'TN-DESK-010', '2022-08-28', 'Trichy', 'decommissioned', NULL);
+('HP Desktop', 'Desktop', 'TN-DESK-010', '2022-08-28', 'Trichy', 'decommissioned', NULL)
 
 -- Insert MaintenanceRecords
+    
 INSERT INTO MaintenanceRecords (asset_id, maintenance_date, description, cost) VALUES
 (2, '2024-03-10', 'Replaced toner and cleaned', 1500.00),
 (3, '2023-12-05', 'Upgraded memory and replaced HDD', 5000.00),
@@ -120,9 +108,10 @@ INSERT INTO MaintenanceRecords (asset_id, maintenance_date, description, cost) V
 (5, '2024-03-20', 'Screen replacement', 6500.00),
 (1, '2024-04-01', 'Battery replacement', 3500.00),
 (8, '2024-04-12', 'Keyboard replacement', 2500.00),
-(9, '2024-04-15', 'Display issue fix', 4000.00);
+(9, '2024-04-15', 'Display issue fix', 4000.00)
 
 -- Insert AssetAllocations
+    
 INSERT INTO AssetAllocations (asset_id, employee_id, allocation_date, return_date) VALUES
 (1, 1, '2024-01-15', NULL),
 (3, 3, '2023-11-01', '2024-03-01'),
@@ -133,9 +122,10 @@ INSERT INTO AssetAllocations (asset_id, employee_id, allocation_date, return_dat
 (9, 9, '2024-04-08', NULL),
 (2, 4, '2024-02-20', '2024-04-10'),
 (4, 10, '2024-01-30', '2024-03-30'),
-(10, 6, '2023-12-15', '2024-02-28');
+(10, 6, '2023-12-15', '2024-02-28')
 
 -- Insert Reservations
+    
 INSERT INTO Reservations (asset_id, employee_id, reservation_date, start_date, end_date, status) VALUES
 (2, 2, '2024-04-15', '2024-04-20', '2024-04-25', 'approved'),
 (4, 4, '2024-04-16', '2024-05-01', '2024-05-05', 'pending'),
@@ -146,4 +136,4 @@ INSERT INTO Reservations (asset_id, employee_id, reservation_date, start_date, e
 (9, 9, '2024-04-21', '2024-04-26', '2024-05-02', 'pending'),
 (1, 1, '2024-04-22', '2024-04-27', '2024-05-03', 'approved'),
 (3, 3, '2024-04-23', '2024-04-28', '2024-05-04', 'pending'),
-(10, 10, '2024-04-24', '2024-04-29', '2024-05-05', 'canceled');
+(10, 10, '2024-04-24', '2024-04-29', '2024-05-05', 'canceled')
